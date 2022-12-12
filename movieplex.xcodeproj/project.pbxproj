@@ -7,18 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0169C8E82946E805004FE096 /* movieplexApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0169C8E72946E805004FE096 /* movieplexApp.swift */; };
+		0169C8E82946E805004FE096 /* MoviePlexApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0169C8E72946E805004FE096 /* MoviePlexApp.swift */; };
 		0169C8EA2946E805004FE096 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0169C8E92946E805004FE096 /* ContentView.swift */; };
 		0169C8EC2946E807004FE096 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0169C8EB2946E807004FE096 /* Assets.xcassets */; };
 		0169C8EF2946E807004FE096 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0169C8EE2946E807004FE096 /* Preview Assets.xcassets */; };
+		017C03DF29470EF800A4E3E9 /* MovieRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017C03DE29470EF800A4E3E9 /* MovieRepository.swift */; };
+		017C03E22947100900A4E3E9 /* WebRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017C03E12947100900A4E3E9 /* WebRepository.swift */; };
+		017C03E42947110500A4E3E9 /* APICall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017C03E32947110500A4E3E9 /* APICall.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0169C8E42946E805004FE096 /* movieplex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = movieplex.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		0169C8E72946E805004FE096 /* movieplexApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = movieplexApp.swift; sourceTree = "<group>"; };
+		0169C8E72946E805004FE096 /* MoviePlexApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePlexApp.swift; sourceTree = "<group>"; };
 		0169C8E92946E805004FE096 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0169C8EB2946E807004FE096 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0169C8EE2946E807004FE096 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		017C03DE29470EF800A4E3E9 /* MovieRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRepository.swift; sourceTree = "<group>"; };
+		017C03E12947100900A4E3E9 /* WebRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebRepository.swift; sourceTree = "<group>"; };
+		017C03E32947110500A4E3E9 /* APICall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICall.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,7 +57,9 @@
 		0169C8E62946E805004FE096 /* movieplex */ = {
 			isa = PBXGroup;
 			children = (
-				0169C8E72946E805004FE096 /* movieplexApp.swift */,
+				017C03E029470FF000A4E3E9 /* Utility */,
+				017C03DD29470E5800A4E3E9 /* Repository */,
+				0169C8E72946E805004FE096 /* MoviePlexApp.swift */,
 				0169C8E92946E805004FE096 /* ContentView.swift */,
 				0169C8EB2946E807004FE096 /* Assets.xcassets */,
 				0169C8ED2946E807004FE096 /* Preview Content */,
@@ -65,6 +73,23 @@
 				0169C8EE2946E807004FE096 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		017C03DD29470E5800A4E3E9 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				017C03DE29470EF800A4E3E9 /* MovieRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		017C03E029470FF000A4E3E9 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				017C03E12947100900A4E3E9 /* WebRepository.swift */,
+				017C03E32947110500A4E3E9 /* APICall.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +162,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				017C03E22947100900A4E3E9 /* WebRepository.swift in Sources */,
 				0169C8EA2946E805004FE096 /* ContentView.swift in Sources */,
-				0169C8E82946E805004FE096 /* movieplexApp.swift in Sources */,
+				017C03E42947110500A4E3E9 /* APICall.swift in Sources */,
+				017C03DF29470EF800A4E3E9 /* MovieRepository.swift in Sources */,
+				0169C8E82946E805004FE096 /* MoviePlexApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
