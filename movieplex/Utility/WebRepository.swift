@@ -15,7 +15,7 @@ protocol WebRepository {
 }
 
 extension WebRepository {
-    func request<T: Codable>(endpoint: APICall, type: T.Type) -> AnyPublisher<T, Error> {
+    func request(endpoint: APICall) -> AnyPublisher<String, Error> {
         do {
             let request = try endpoint.urlRequest(baseURL: baseURL)
             return session
@@ -33,9 +33,8 @@ extension WebRepository {
                         throw APIError.dataEmpty
                     }
                     
-                    return data
+                    return String(decoding: data, as: UTF8.self)
                 }
-                .decode(type: type, decoder: JSONDecoder())
                 .mapError {error in
                     if let error = error as? APIError {
                         return error
@@ -45,7 +44,7 @@ extension WebRepository {
                 }
                 .eraseToAnyPublisher()
         } catch let error {
-            return Fail<T, Error>(error: error).eraseToAnyPublisher()
+            return Fail<String, Error>(error: error).eraseToAnyPublisher()
         }
     }
 }
