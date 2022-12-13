@@ -14,7 +14,18 @@
 		017C03DF29470EF800A4E3E9 /* MovieRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017C03DE29470EF800A4E3E9 /* MovieRepository.swift */; };
 		017C03E22947100900A4E3E9 /* WebRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017C03E12947100900A4E3E9 /* WebRepository.swift */; };
 		017C03E42947110500A4E3E9 /* APICall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017C03E32947110500A4E3E9 /* APICall.swift */; };
+		01F183A52948670C0059DC3A /* movieplexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F183A42948670C0059DC3A /* movieplexTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		01F183A62948670C0059DC3A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0169C8DC2946E805004FE096 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0169C8E32946E805004FE096;
+			remoteInfo = movieplex;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0169C8E42946E805004FE096 /* movieplex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = movieplex.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -25,10 +36,19 @@
 		017C03DE29470EF800A4E3E9 /* MovieRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRepository.swift; sourceTree = "<group>"; };
 		017C03E12947100900A4E3E9 /* WebRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebRepository.swift; sourceTree = "<group>"; };
 		017C03E32947110500A4E3E9 /* APICall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICall.swift; sourceTree = "<group>"; };
+		01F183A22948670C0059DC3A /* movieplexTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = movieplexTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		01F183A42948670C0059DC3A /* movieplexTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = movieplexTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		0169C8E12946E805004FE096 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		01F1839F2948670C0059DC3A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -42,6 +62,7 @@
 			isa = PBXGroup;
 			children = (
 				0169C8E62946E805004FE096 /* movieplex */,
+				01F183A32948670C0059DC3A /* movieplexTests */,
 				0169C8E52946E805004FE096 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -50,6 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				0169C8E42946E805004FE096 /* movieplex.app */,
+				01F183A22948670C0059DC3A /* movieplexTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -57,6 +79,7 @@
 		0169C8E62946E805004FE096 /* movieplex */ = {
 			isa = PBXGroup;
 			children = (
+				01F1839D29485DCA0059DC3A /* Model */,
 				017C03E029470FF000A4E3E9 /* Utility */,
 				017C03DD29470E5800A4E3E9 /* Repository */,
 				0169C8E72946E805004FE096 /* MoviePlexApp.swift */,
@@ -92,6 +115,21 @@
 			path = Utility;
 			sourceTree = "<group>";
 		};
+		01F1839D29485DCA0059DC3A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		01F183A32948670C0059DC3A /* movieplexTests */ = {
+			isa = PBXGroup;
+			children = (
+				01F183A42948670C0059DC3A /* movieplexTests.swift */,
+			);
+			path = movieplexTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -112,6 +150,24 @@
 			productReference = 0169C8E42946E805004FE096 /* movieplex.app */;
 			productType = "com.apple.product-type.application";
 		};
+		01F183A12948670C0059DC3A /* movieplexTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 01F183A82948670C0059DC3A /* Build configuration list for PBXNativeTarget "movieplexTests" */;
+			buildPhases = (
+				01F1839E2948670C0059DC3A /* Sources */,
+				01F1839F2948670C0059DC3A /* Frameworks */,
+				01F183A02948670C0059DC3A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				01F183A72948670C0059DC3A /* PBXTargetDependency */,
+			);
+			name = movieplexTests;
+			productName = movieplexTests;
+			productReference = 01F183A22948670C0059DC3A /* movieplexTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -119,11 +175,15 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1400;
+				LastSwiftUpdateCheck = 1410;
 				LastUpgradeCheck = 1400;
 				TargetAttributes = {
 					0169C8E32946E805004FE096 = {
 						CreatedOnToolsVersion = 14.0.1;
+					};
+					01F183A12948670C0059DC3A = {
+						CreatedOnToolsVersion = 14.1;
+						TestTargetID = 0169C8E32946E805004FE096;
 					};
 				};
 			};
@@ -141,6 +201,7 @@
 			projectRoot = "";
 			targets = (
 				0169C8E32946E805004FE096 /* movieplex */,
+				01F183A12948670C0059DC3A /* movieplexTests */,
 			);
 		};
 /* End PBXProject section */
@@ -152,6 +213,13 @@
 			files = (
 				0169C8EF2946E807004FE096 /* Preview Assets.xcassets in Resources */,
 				0169C8EC2946E807004FE096 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		01F183A02948670C0059DC3A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,7 +238,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		01F1839E2948670C0059DC3A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01F183A52948670C0059DC3A /* movieplexTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		01F183A72948670C0059DC3A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0169C8E32946E805004FE096 /* movieplex */;
+			targetProxy = 01F183A62948670C0059DC3A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		0169C8F02946E807004FE096 /* Debug */ = {
@@ -303,6 +387,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -332,6 +417,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -342,6 +428,50 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		01F183A92948670C0059DC3A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = YCNNH7D2AD;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.devsisters.movieplexTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/movieplex.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/movieplex";
+			};
+			name = Debug;
+		};
+		01F183AA2948670C0059DC3A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = YCNNH7D2AD;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.devsisters.movieplexTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/movieplex.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/movieplex";
 			};
 			name = Release;
 		};
@@ -362,6 +492,15 @@
 			buildConfigurations = (
 				0169C8F32946E807004FE096 /* Debug */,
 				0169C8F42946E807004FE096 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		01F183A82948670C0059DC3A /* Build configuration list for PBXNativeTarget "movieplexTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				01F183A92948670C0059DC3A /* Debug */,
+				01F183AA2948670C0059DC3A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

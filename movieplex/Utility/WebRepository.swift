@@ -36,11 +36,7 @@ extension WebRepository {
                     return String(decoding: data, as: UTF8.self)
                 }
                 .mapError {error in
-                    if let error = error as? APIError {
-                        return error
-                    } else {
-                        return APIError.parseError
-                    }
+                    return error
                 }
                 .eraseToAnyPublisher()
         } catch let error {

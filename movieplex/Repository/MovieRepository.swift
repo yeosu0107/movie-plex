@@ -19,9 +19,7 @@ struct MovieRepository : WebRepository {
     }
     
     func searchMovie() -> AnyPublisher<String, Error> {
-        let urlRequest = URLRequest(url: URL(string: baseURL)!)
         return request(endpoint: API.search)
-        
     }
 }
 
