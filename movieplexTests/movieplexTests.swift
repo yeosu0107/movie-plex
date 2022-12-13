@@ -14,7 +14,7 @@ final class movieplexTests: XCTestCase {
     private var subscriptions = Set<AnyCancellable>()
 
     override func setUpWithError() throws {
-        movieRepository = MovieRepository(session: URLSession(configuration: .default), baseURL: "")
+        movieRepository = MovieRepository(session: URLSession(configuration: .default), baseURL: "https://openapi.naver.com")
         subscriptions = Set<AnyCancellable>()
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -36,9 +36,10 @@ final class movieplexTests: XCTestCase {
             }
         }, receiveValue: { value in
             print("###### search movie result: \(value) ######")
-            XCTAssertNotNil(value != "")
+            exp.fulfill()
         }).store(in: &subscriptions)
         wait(for: [exp], timeout: 2)
+
     }
     
 }
