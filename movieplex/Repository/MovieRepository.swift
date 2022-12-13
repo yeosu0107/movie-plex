@@ -50,6 +50,12 @@ extension MovieRepository.API: APICall {
         ]
     }
     
+    var query: [String : String]? {
+        return [
+            "query" : ""
+        ]
+    }
+    
     func body() throws -> Data? {
         return nil
     }

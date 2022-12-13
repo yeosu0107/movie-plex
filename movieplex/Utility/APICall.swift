@@ -11,12 +11,19 @@ protocol APICall {
     var path: String { get }
     var method: String { get }
     var headers: [String: String]? { get }
+    var query: [String: String]? { get }
     func body() throws -> Data?
 }
 
 extension APICall {
     func urlRequest(baseURL: String) throws -> URLRequest {
-        guard let url = URL(string: baseURL + path) else {
+        var queryString: String = ""
+        query?.forEach{ elem in
+            queryString+="\(elem.key)=\(elem.value)"
+        }
+        
+
+        guard let url = URL(string: baseURL + path + (queryString == "" ? "" : "?" + queryString)) else {
             throw APIError.invalidURL
         }
         
