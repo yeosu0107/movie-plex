@@ -51,7 +51,8 @@ final class movieplexTests: XCTestCase {
     
         movieInteractor.search(keyword: "plex", movieList: movieList.binding)
         movieList.updatesRecorder.sink { updates in
-            print(updates)
+            XCTAssertNotNil(updates.last?.value)
+            print("###### search movie result: \(String(describing: updates.last?.value)) ######")
             exp.fulfill()
         }.store(in: &subscriptions)
         wait(for: [exp], timeout: 2)
