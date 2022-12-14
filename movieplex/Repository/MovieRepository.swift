@@ -13,28 +13,27 @@ struct MovieRepository : WebRepository {
     let baseURL: String
     let bgQueue = DispatchQueue(label: "bg_parse_queue")
     
-    init(session: URLSession, baseURL: String) {
-        self.session = session
-        self.baseURL = baseURL
+    init() {
+        self.session = URLSession(configuration: .default)
+        self.baseURL = "https://openapi.naver.com"
     }
     
-    func searchMovie() -> AnyPublisher<String, Error> {
-        return request(endpoint: API.search)
+    func searchMovie(keyword: String) -> AnyPublisher<String, Error> {
+        let movieAPI = MovieAPI(keyword: keyword)
+        return request(apiCall: movieAPI)
     }
 }
 
-extension MovieRepository {
-    enum API {
-        case search
-    }
-}
 
-extension MovieRepository.API: APICall {
+struct MovieAPI: APICall {
+    var keyword: String
+    
+    init(keyword: String) {
+        self.keyword = keyword
+    }
+    
     var path: String {
-        switch self {
-        case .search:
-            return "/v1/search/movie.json"
-        }
+        return "/v1/search/movie.json"
     }
     
     var method: String {
@@ -50,7 +49,7 @@ extension MovieRepository.API: APICall {
     
     var query: [String : String]? {
         return [
-            "query" : ""
+            "query":keyword
         ]
     }
     

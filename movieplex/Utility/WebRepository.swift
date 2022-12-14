@@ -15,9 +15,9 @@ protocol WebRepository {
 }
 
 extension WebRepository {
-    func request(endpoint: APICall) -> AnyPublisher<String, Error> {
+    func request(apiCall: APICall) -> AnyPublisher<String, Error> {
         do {
-            let request = try endpoint.urlRequest(baseURL: baseURL)
+            let request = try apiCall.urlRequest(baseURL: baseURL)
             return session
                 .dataTaskPublisher(for: request)
                 .tryMap() { data, response in

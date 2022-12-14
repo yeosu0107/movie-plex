@@ -14,7 +14,7 @@ final class movieplexTests: XCTestCase {
     private var subscriptions = Set<AnyCancellable>()
 
     override func setUpWithError() throws {
-        movieRepository = MovieRepository(session: URLSession(configuration: .default), baseURL: "https://openapi.naver.com")
+        movieRepository = MovieRepository()
         subscriptions = Set<AnyCancellable>()
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -25,7 +25,7 @@ final class movieplexTests: XCTestCase {
 
     func testSearchMovie() throws {
         let exp = XCTestExpectation(description: "Completion")
-        let result =  movieRepository.searchMovie()
+        let result =  movieRepository.searchMovie(keyword: "plex")
         result.sink(receiveCompletion: { completion in
             switch completion {
             case let .failure(error):
