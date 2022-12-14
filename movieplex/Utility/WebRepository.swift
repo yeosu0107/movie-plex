@@ -38,6 +38,8 @@ extension WebRepository {
                 .mapError {error in
                     return error
                 }
+                .subscribe(on: bgQueue)
+                .receive(on: DispatchQueue.main)
                 .eraseToAnyPublisher()
         } catch let error {
             return Fail<String, Error>(error: error).eraseToAnyPublisher()

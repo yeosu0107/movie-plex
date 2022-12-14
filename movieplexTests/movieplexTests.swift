@@ -7,14 +7,17 @@
 
 import XCTest
 import Combine
+import SwiftUI
 @testable import movieplex
 
 final class movieplexTests: XCTestCase {
     private var movieRepository: MovieRepository!
+    private var movieInteractor: MovieInteractor!
     private var subscriptions = Set<AnyCancellable>()
 
     override func setUpWithError() throws {
         movieRepository = MovieRepository()
+        movieInteractor = MovieInteractorImpl(movieRepository: movieRepository)
         subscriptions = Set<AnyCancellable>()
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -23,7 +26,7 @@ final class movieplexTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testSearchMovie() throws {
+    func testSearchMovieRepository() throws {
         let exp = XCTestExpectation(description: "Completion")
         let result =  movieRepository.searchMovie(keyword: "plex")
         result.sink(receiveCompletion: { completion in
@@ -42,4 +45,35 @@ final class movieplexTests: XCTestCase {
 
     }
     
+    func testSearchMovieInteractor() throws {
+        let exp = XCTestExpectation(description: "Completion")
+        let movieList = BindingWithPublisher(value: Loadable<Channel>.notRequested)
+    
+        movieInteractor.search(keyword: "plex", movieList: movieList.binding)
+        movieList.updatesRecorder.sink { updates in
+            print(updates)
+            exp.fulfill()
+        }.store(in: &subscriptions)
+        wait(for: [exp], timeout: 2)
+    }
+    
+}
+
+struct BindingWithPublisher<Value> {
+    
+    let binding: Binding<Value>
+    let updatesRecorder: AnyPublisher<[Value], Never>
+    
+    init(value: Value, recordingTimeInterval: TimeInterval = 0.5) {
+        var value = value
+        var updates = [value]
+        binding = Binding<Value>(
+            get: { value },
+            set: { value = $0; updates.append($0) })
+        updatesRecorder = Future<[Value], Never> { completion in
+            DispatchQueue.main.asyncAfter(deadline: .now() + recordingTimeInterval) {
+                completion(.success(updates))
+            }
+        }.eraseToAnyPublisher()
+    }
 }
