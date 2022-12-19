@@ -12,8 +12,8 @@ struct ContentView: View {
     @State private var keyword = ""
     @State private var movieList: Loadable<Channel>
 
-    init(movieList: Loadable<Channel> = .notRequested) {
-        self._movieList = .init(initialValue: movieList)
+    init() {
+        self._movieList = .init(initialValue: .notRequested)
     }
     
     var body: some View {
@@ -29,6 +29,18 @@ struct ContentView: View {
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding()
                 Spacer()
+                VStack(alignment:.leading) {
+                    Text(firstItem()?.title ?? "").font(.title)
+                    Text(firstItem()?.subtitle ?? "").font(.subheadline)
+                    HStack(spacing: 10) {
+                        Text(firstItem()?.pubDate ?? "")
+                        Text(firstItem()?.director ?? "")
+                        Text(firstItem()?.userRating ?? "")
+                    }.font(.callout)
+                    Text(firstItem()?.actor ?? "").font(.body)
+                }
+                
+                Spacer()
             }
             .navigationTitle("영화 검색")
             .navigationBarTitleDisplayMode(.automatic)
@@ -43,6 +55,18 @@ private extension ContentView {
                 keyword: keyword,
                 movieList: $movieList
             )
+    }
+    
+    func firstItem() -> Movie? {
+        if(movieList.value == nil) {
+            return nil
+        }
+        
+        if(movieList.value!.items.count <= 0) {
+            return nil
+        }
+        
+        return movieList.value?.items[0]
     }
 }
 
