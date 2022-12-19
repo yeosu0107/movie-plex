@@ -42,3 +42,8 @@ struct MovieInteractorImpl : MovieInteractor {
             .store(in: cancelBag)
     }
 }
+
+struct StubMovieInteractor: MovieInteractor {
+    func search(keyword: String, movieList: LoadableObject<Channel>) {
+    }
+}
