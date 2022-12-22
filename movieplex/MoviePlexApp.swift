@@ -21,7 +21,7 @@ struct MoviePlexApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            SearchView()
                 .environment(\.injected, injected)
             
         }

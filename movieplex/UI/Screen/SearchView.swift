@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct SearchView: View {
     @Environment(\.injected) private var injected: DIContainer
     @State private var keyword = ""
     @State private var movieList: Loadable<Channel>
@@ -30,14 +30,7 @@ struct ContentView: View {
                 .padding()
                 Spacer()
                 VStack(alignment:.leading) {
-                    Text(firstItem()?.title ?? "").font(.title)
-                    Text(firstItem()?.subtitle ?? "").font(.subheadline)
-                    HStack(spacing: 10) {
-                        Text(firstItem()?.pubDate ?? "")
-                        Text(firstItem()?.director ?? "")
-                        Text(firstItem()?.userRating ?? "")
-                    }.font(.callout)
-                    Text(firstItem()?.actor ?? "").font(.body)
+                    MovieListView(movieList: $movieList)
                 }
                 
                 Spacer()
@@ -48,7 +41,7 @@ struct ContentView: View {
     }
 }
 
-private extension ContentView {
+private extension SearchView {
     func search() {
         injected.interactors.movieInteractor
             .search(
@@ -56,22 +49,10 @@ private extension ContentView {
                 movieList: $movieList
             )
     }
-    
-    func firstItem() -> Movie? {
-        if(movieList.value == nil) {
-            return nil
-        }
-        
-        if(movieList.value!.items.count <= 0) {
-            return nil
-        }
-        
-        return movieList.value?.items[0]
-    }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct SearchView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        SearchView()
     }
 }

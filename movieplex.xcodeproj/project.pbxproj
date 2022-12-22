@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01113F502954102F0016A6CC /* MovieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01113F4F2954102F0016A6CC /* MovieView.swift */; };
+		01113F5229541B4B0016A6CC /* MovieListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01113F5129541B4B0016A6CC /* MovieListView.swift */; };
 		0169C8E82946E805004FE096 /* MoviePlexApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0169C8E72946E805004FE096 /* MoviePlexApp.swift */; };
-		0169C8EA2946E805004FE096 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0169C8E92946E805004FE096 /* ContentView.swift */; };
+		0169C8EA2946E805004FE096 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0169C8E92946E805004FE096 /* SearchView.swift */; };
 		0169C8EC2946E807004FE096 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0169C8EB2946E807004FE096 /* Assets.xcassets */; };
 		0169C8EF2946E807004FE096 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0169C8EE2946E807004FE096 /* Preview Assets.xcassets */; };
 		017C03DF29470EF800A4E3E9 /* MovieRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017C03DE29470EF800A4E3E9 /* MovieRepository.swift */; };
@@ -35,9 +37,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		01113F4F2954102F0016A6CC /* MovieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieView.swift; sourceTree = "<group>"; };
+		01113F5129541B4B0016A6CC /* MovieListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListView.swift; sourceTree = "<group>"; };
 		0169C8E42946E805004FE096 /* movieplex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = movieplex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0169C8E72946E805004FE096 /* MoviePlexApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePlexApp.swift; sourceTree = "<group>"; };
-		0169C8E92946E805004FE096 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		0169C8E92946E805004FE096 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		0169C8EB2946E807004FE096 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0169C8EE2946E807004FE096 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		017C03DE29470EF800A4E3E9 /* MovieRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRepository.swift; sourceTree = "<group>"; };
@@ -144,7 +148,9 @@
 		01D589FD29504FDC0056E2CE /* Screen */ = {
 			isa = PBXGroup;
 			children = (
-				0169C8E92946E805004FE096 /* ContentView.swift */,
+				0169C8E92946E805004FE096 /* SearchView.swift */,
+				01113F4F2954102F0016A6CC /* MovieView.swift */,
+				01113F5129541B4B0016A6CC /* MovieListView.swift */,
 			);
 			path = Screen;
 			sourceTree = "<group>";
@@ -284,15 +290,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				017C03E22947100900A4E3E9 /* WebRepository.swift in Sources */,
+				01113F5229541B4B0016A6CC /* MovieListView.swift in Sources */,
 				01D58A00295050420056E2CE /* AppState.swift in Sources */,
 				01D58A04295051BF0056E2CE /* InteractorContainer.swift in Sources */,
 				01F183AD294962420059DC3A /* MovieInteractor.swift in Sources */,
 				01D58A02295051010056E2CE /* DependencyInjector.swift in Sources */,
 				01F183B32949878D0059DC3A /* LoadableObject.swift in Sources */,
-				0169C8EA2946E805004FE096 /* ContentView.swift in Sources */,
+				0169C8EA2946E805004FE096 /* SearchView.swift in Sources */,
 				017C03E42947110500A4E3E9 /* APICall.swift in Sources */,
 				017C03DF29470EF800A4E3E9 /* MovieRepository.swift in Sources */,
 				01F183AF2949650E0059DC3A /* CancelBag.swift in Sources */,
+				01113F502954102F0016A6CC /* MovieView.swift in Sources */,
 				01F183B1294984130059DC3A /* Movie.swift in Sources */,
 				0169C8E82946E805004FE096 /* MoviePlexApp.swift in Sources */,
 			);
