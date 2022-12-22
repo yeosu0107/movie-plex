@@ -49,7 +49,7 @@ struct MovieAPI: APICall {
     
     var query: [String : String]? {
         return [
-            "query":keyword
+            "query": String(keyword.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")
         ]
     }
     
