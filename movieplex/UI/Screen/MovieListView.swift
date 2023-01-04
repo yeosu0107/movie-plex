@@ -16,7 +16,7 @@ struct MovieListView: View {
         } else {
             List {
                 Section(header:Text("Search Result")) {
-                    ForEach(0..<movieList.value!.display, id: \.self) { i in
+                    ForEach(0..<getReturnedMovieList(), id: \.self) { i in
                         NavigationLink(getMovieList()![i].title, destination: MovieView(movie: (movieList.value?.items[i])!))
                     }
                 }
@@ -38,6 +38,10 @@ private extension MovieListView {
         }
         
         return movieList.value!.items
+    }
+    
+    func getReturnedMovieList() -> Int {
+        return movieList.value?.display ?? 0
     }
 }
 
