@@ -9,9 +9,14 @@ import SwiftUI
 
 struct SearchView: View {
     @State private var keyword = ""
+    private let container: DIContainer
+    
+    init(container: DIContainer) {
+        self.container = container
+    }
     
     var body: some View {
-        NavigationTitleViews {
+        NavigationView {
             VStack(alignment: .center) {
                 HStack {
                     Image(systemName: "magnifyingglass")
@@ -32,22 +37,23 @@ struct SearchView: View {
                 Spacer()
             }
         }
+        .navigationBarTitle("영화 검색", displayMode: .automatic)
     }
     
-    func NavigationTitleViews(content: ()-> some View) -> some View {
-        if #available(iOS 14.0, *) {
-            return NavigationView{
-                content()
-            }
-            .navigationTitle("영화 검색")
-            .navigationBarTitleDisplayMode(.automatic)
-        } else {
-            return NavigationView{
-                content()
-            }
-            .navigationBarTitle("영화 검색", displayMode: .automatic)
-        }
-    }
+    //func NavigationTitleViews(content: ()-> some View) -> some //View {
+    //    if #available(iOS 14.0, *) {
+    //        return NavigationView{
+    //            content
+    //        }
+    //        .navigationTitle("영화 검색")
+    //        .navigationBarTitleDisplayMode(.automatic)
+    //    } else {
+    //        return NavigationView{
+    //            content
+    //        }
+    //        .navigationBarTitle("영화 검색", displayMode: //.automatic)
+    //    }
+    //}
 }
 
 private extension SearchView {
@@ -58,7 +64,7 @@ private extension SearchView {
 
 struct SearchView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchView()
+        SearchView(container: .preview)
     }
 }
 

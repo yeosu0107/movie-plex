@@ -26,5 +26,6 @@ final class DefaultSearchMovieContainer : SearchMovieContainer {
 
 final class StubSearchMovieContainer : SearchMovieContainer {
     func search(keyword: String) async throws -> Channel {
+        return try await Channel(lastBuildDate: "", total: 0, start: 0, display: 0, items: [])
     }
 }

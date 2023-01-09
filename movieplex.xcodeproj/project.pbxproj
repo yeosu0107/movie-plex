@@ -7,55 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		01113F502954102F0016A6CC /* MovieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01113F4F2954102F0016A6CC /* MovieView.swift */; };
-		01113F5229541B4B0016A6CC /* MovieListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01113F5129541B4B0016A6CC /* MovieListView.swift */; };
+		01515021296BFE8600E370AC /* movie-search in Frameworks */ = {isa = PBXBuildFile; productRef = 01515020296BFE8600E370AC /* movie-search */; };
 		0169C8E82946E805004FE096 /* MoviePlexApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0169C8E72946E805004FE096 /* MoviePlexApp.swift */; };
-		0169C8EA2946E805004FE096 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0169C8E92946E805004FE096 /* SearchView.swift */; };
 		0169C8EC2946E807004FE096 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0169C8EB2946E807004FE096 /* Assets.xcassets */; };
 		0169C8EF2946E807004FE096 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0169C8EE2946E807004FE096 /* Preview Assets.xcassets */; };
-		017C03DF29470EF800A4E3E9 /* MovieRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017C03DE29470EF800A4E3E9 /* MovieRepository.swift */; };
-		017C03E22947100900A4E3E9 /* WebRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017C03E12947100900A4E3E9 /* WebRepository.swift */; };
-		017C03E42947110500A4E3E9 /* APICall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017C03E32947110500A4E3E9 /* APICall.swift */; };
-		01D58A00295050420056E2CE /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D589FF295050420056E2CE /* AppState.swift */; };
-		01D58A02295051010056E2CE /* DependencyInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D58A01295051010056E2CE /* DependencyInjector.swift */; };
-		01D58A04295051BF0056E2CE /* InteractorContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D58A03295051BF0056E2CE /* InteractorContainer.swift */; };
-		01F183A52948670C0059DC3A /* movieplexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F183A42948670C0059DC3A /* movieplexTests.swift */; };
-		01F183AD294962420059DC3A /* MovieInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F183AC294962420059DC3A /* MovieInteractor.swift */; };
-		01F183AF2949650E0059DC3A /* CancelBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F183AE2949650E0059DC3A /* CancelBag.swift */; };
-		01F183B1294984130059DC3A /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F183B0294984130059DC3A /* Movie.swift */; };
-		01F183B32949878D0059DC3A /* LoadableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F183B22949878D0059DC3A /* LoadableObject.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		01F183A62948670C0059DC3A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0169C8DC2946E805004FE096 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 0169C8E32946E805004FE096;
-			remoteInfo = movieplex;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
-		01113F4F2954102F0016A6CC /* MovieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieView.swift; sourceTree = "<group>"; };
-		01113F5129541B4B0016A6CC /* MovieListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListView.swift; sourceTree = "<group>"; };
+		0151501D296BF5A300E370AC /* movie-search */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = "movie-search"; sourceTree = "<group>"; };
 		0169C8E42946E805004FE096 /* movieplex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = movieplex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0169C8E72946E805004FE096 /* MoviePlexApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePlexApp.swift; sourceTree = "<group>"; };
-		0169C8E92946E805004FE096 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		0169C8EB2946E807004FE096 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0169C8EE2946E807004FE096 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		017C03DE29470EF800A4E3E9 /* MovieRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRepository.swift; sourceTree = "<group>"; };
-		017C03E12947100900A4E3E9 /* WebRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebRepository.swift; sourceTree = "<group>"; };
-		017C03E32947110500A4E3E9 /* APICall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICall.swift; sourceTree = "<group>"; };
-		01D589FF295050420056E2CE /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
-		01D58A01295051010056E2CE /* DependencyInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyInjector.swift; sourceTree = "<group>"; };
-		01D58A03295051BF0056E2CE /* InteractorContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractorContainer.swift; sourceTree = "<group>"; };
-		01F183A22948670C0059DC3A /* movieplexTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = movieplexTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		01F183A42948670C0059DC3A /* movieplexTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = movieplexTests.swift; sourceTree = "<group>"; };
-		01F183AC294962420059DC3A /* MovieInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInteractor.swift; sourceTree = "<group>"; };
-		01F183AE2949650E0059DC3A /* CancelBag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelBag.swift; sourceTree = "<group>"; };
-		01F183B0294984130059DC3A /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
-		01F183B22949878D0059DC3A /* LoadableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadableObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,25 +26,35 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		01F1839F2948670C0059DC3A /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				01515021296BFE8600E370AC /* movie-search in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0151501C296BF5A300E370AC /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				0151501D296BF5A300E370AC /* movie-search */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		0151501F296BFE8600E370AC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		0169C8DB2946E805004FE096 = {
 			isa = PBXGroup;
 			children = (
+				0151501C296BF5A300E370AC /* Packages */,
 				0169C8E62946E805004FE096 /* movieplex */,
-				01F183A32948670C0059DC3A /* movieplexTests */,
 				0169C8E52946E805004FE096 /* Products */,
+				0151501F296BFE8600E370AC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -89,7 +62,6 @@
 			isa = PBXGroup;
 			children = (
 				0169C8E42946E805004FE096 /* movieplex.app */,
-				01F183A22948670C0059DC3A /* movieplexTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -97,12 +69,6 @@
 		0169C8E62946E805004FE096 /* movieplex */ = {
 			isa = PBXGroup;
 			children = (
-				01D589FE295050290056E2CE /* Injected */,
-				01D589FC29504EDD0056E2CE /* UI */,
-				01F183AB294962050059DC3A /* Interactor */,
-				01F1839D29485DCA0059DC3A /* Model */,
-				017C03E029470FF000A4E3E9 /* Utility */,
-				017C03DD29470E5800A4E3E9 /* Repository */,
 				0169C8E72946E805004FE096 /* MoviePlexApp.swift */,
 				0169C8EB2946E807004FE096 /* Assets.xcassets */,
 				0169C8ED2946E807004FE096 /* Preview Content */,
@@ -116,77 +82,6 @@
 				0169C8EE2946E807004FE096 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		017C03DD29470E5800A4E3E9 /* Repository */ = {
-			isa = PBXGroup;
-			children = (
-				017C03DE29470EF800A4E3E9 /* MovieRepository.swift */,
-			);
-			path = Repository;
-			sourceTree = "<group>";
-		};
-		017C03E029470FF000A4E3E9 /* Utility */ = {
-			isa = PBXGroup;
-			children = (
-				017C03E12947100900A4E3E9 /* WebRepository.swift */,
-				017C03E32947110500A4E3E9 /* APICall.swift */,
-				01F183AE2949650E0059DC3A /* CancelBag.swift */,
-				01F183B22949878D0059DC3A /* LoadableObject.swift */,
-			);
-			path = Utility;
-			sourceTree = "<group>";
-		};
-		01D589FC29504EDD0056E2CE /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				01D589FD29504FDC0056E2CE /* Screen */,
-			);
-			path = UI;
-			sourceTree = "<group>";
-		};
-		01D589FD29504FDC0056E2CE /* Screen */ = {
-			isa = PBXGroup;
-			children = (
-				0169C8E92946E805004FE096 /* SearchView.swift */,
-				01113F4F2954102F0016A6CC /* MovieView.swift */,
-				01113F5129541B4B0016A6CC /* MovieListView.swift */,
-			);
-			path = Screen;
-			sourceTree = "<group>";
-		};
-		01D589FE295050290056E2CE /* Injected */ = {
-			isa = PBXGroup;
-			children = (
-				01D589FF295050420056E2CE /* AppState.swift */,
-				01D58A01295051010056E2CE /* DependencyInjector.swift */,
-				01D58A03295051BF0056E2CE /* InteractorContainer.swift */,
-			);
-			path = Injected;
-			sourceTree = "<group>";
-		};
-		01F1839D29485DCA0059DC3A /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				01F183B0294984130059DC3A /* Movie.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		01F183A32948670C0059DC3A /* movieplexTests */ = {
-			isa = PBXGroup;
-			children = (
-				01F183A42948670C0059DC3A /* movieplexTests.swift */,
-			);
-			path = movieplexTests;
-			sourceTree = "<group>";
-		};
-		01F183AB294962050059DC3A /* Interactor */ = {
-			isa = PBXGroup;
-			children = (
-				01F183AC294962420059DC3A /* MovieInteractor.swift */,
-			);
-			path = Interactor;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,27 +100,12 @@
 			dependencies = (
 			);
 			name = movieplex;
+			packageProductDependencies = (
+				01515020296BFE8600E370AC /* movie-search */,
+			);
 			productName = movieplex;
 			productReference = 0169C8E42946E805004FE096 /* movieplex.app */;
 			productType = "com.apple.product-type.application";
-		};
-		01F183A12948670C0059DC3A /* movieplexTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 01F183A82948670C0059DC3A /* Build configuration list for PBXNativeTarget "movieplexTests" */;
-			buildPhases = (
-				01F1839E2948670C0059DC3A /* Sources */,
-				01F1839F2948670C0059DC3A /* Frameworks */,
-				01F183A02948670C0059DC3A /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				01F183A72948670C0059DC3A /* PBXTargetDependency */,
-			);
-			name = movieplexTests;
-			productName = movieplexTests;
-			productReference = 01F183A22948670C0059DC3A /* movieplexTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -239,10 +119,6 @@
 				TargetAttributes = {
 					0169C8E32946E805004FE096 = {
 						CreatedOnToolsVersion = 14.0.1;
-					};
-					01F183A12948670C0059DC3A = {
-						CreatedOnToolsVersion = 14.1;
-						TestTargetID = 0169C8E32946E805004FE096;
 					};
 				};
 			};
@@ -260,7 +136,6 @@
 			projectRoot = "";
 			targets = (
 				0169C8E32946E805004FE096 /* movieplex */,
-				01F183A12948670C0059DC3A /* movieplexTests */,
 			);
 		};
 /* End PBXProject section */
@@ -275,13 +150,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		01F183A02948670C0059DC3A /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -289,40 +157,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				017C03E22947100900A4E3E9 /* WebRepository.swift in Sources */,
-				01113F5229541B4B0016A6CC /* MovieListView.swift in Sources */,
-				01D58A00295050420056E2CE /* AppState.swift in Sources */,
-				01D58A04295051BF0056E2CE /* InteractorContainer.swift in Sources */,
-				01F183AD294962420059DC3A /* MovieInteractor.swift in Sources */,
-				01D58A02295051010056E2CE /* DependencyInjector.swift in Sources */,
-				01F183B32949878D0059DC3A /* LoadableObject.swift in Sources */,
-				0169C8EA2946E805004FE096 /* SearchView.swift in Sources */,
-				017C03E42947110500A4E3E9 /* APICall.swift in Sources */,
-				017C03DF29470EF800A4E3E9 /* MovieRepository.swift in Sources */,
-				01F183AF2949650E0059DC3A /* CancelBag.swift in Sources */,
-				01113F502954102F0016A6CC /* MovieView.swift in Sources */,
-				01F183B1294984130059DC3A /* Movie.swift in Sources */,
 				0169C8E82946E805004FE096 /* MoviePlexApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		01F1839E2948670C0059DC3A /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				01F183A52948670C0059DC3A /* movieplexTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		01F183A72948670C0059DC3A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 0169C8E32946E805004FE096 /* movieplex */;
-			targetProxy = 01F183A62948670C0059DC3A /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		0169C8F02946E807004FE096 /* Debug */ = {
@@ -499,50 +338,6 @@
 			};
 			name = Release;
 		};
-		01F183A92948670C0059DC3A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = YCNNH7D2AD;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.devsisters.movieplexTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/movieplex.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/movieplex";
-			};
-			name = Debug;
-		};
-		01F183AA2948670C0059DC3A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = YCNNH7D2AD;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.devsisters.movieplexTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/movieplex.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/movieplex";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -564,16 +359,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		01F183A82948670C0059DC3A /* Build configuration list for PBXNativeTarget "movieplexTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				01F183A92948670C0059DC3A /* Debug */,
-				01F183AA2948670C0059DC3A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		01515020296BFE8600E370AC /* movie-search */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = "movie-search";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0169C8DC2946E805004FE096 /* Project object */;
 }

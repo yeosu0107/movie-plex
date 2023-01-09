@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct DIContainer: EnvironmentKey {
-    let interactor: InteractorContainers
+    let container: InteractorContainers
     
-    init(interactor: InteractorContainers) {
-        self.interactor = interactor
+    init(container: InteractorContainers) {
+        self.container = container
     }
     
     static var defaultValue: Self { Self.default }
     
-    private static let `default` = Self(interactor: .stub)
+    private static let `default` = Self(container: .stub)
 }
 
 extension EnvironmentValues {
@@ -28,7 +28,7 @@ extension EnvironmentValues {
 
 extension View {
     func inject(_ interactor: DIContainer.InteractorContainers) -> some View {
-        let container = DIContainer(interactor: interactor)
+        let container = DIContainer(container: interactor)
         
         return inject(container)
     }
@@ -39,3 +39,11 @@ extension View {
             .environment(\.injected, container)
     }
 }
+
+#if DEBUG
+extension DIContainer {
+    static var preview: Self {
+        .init(container: .stub)
+    }
+}
+#endif

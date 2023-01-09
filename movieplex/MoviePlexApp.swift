@@ -6,24 +6,21 @@
 //
 
 import SwiftUI
+import movie_search
 
 @main
 struct MoviePlexApp: App {
-    private var injected: DIContainer
-    
-    init() {
-        let movieInteractor = MovieInteractorImpl(movieRepository: MovieRepository())
-        
-        self.injected = DIContainer(
-            appState: AppState(),
-            interactors: DIContainer.Interactors(movieInteractor: movieInteractor))
-    }
-    
     var body: some Scene {
         WindowGroup {
-            SearchView()
-                .environment(\.injected, injected)
+            openSearchView()
             
         }
+    }
+}
+
+extension MoviePlexApp {
+    private func openSearchView() -> some View {
+        let movieMgr = MovieSearchManager()
+        return movieMgr.launch()
     }
 }
