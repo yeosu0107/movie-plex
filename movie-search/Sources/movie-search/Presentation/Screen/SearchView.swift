@@ -9,10 +9,12 @@ import SwiftUI
 
 struct SearchView: View {
     @State private var keyword = ""
+    @State private var movieList: Channel?
     private let container: DIContainer
     
     init(container: DIContainer) {
         self.container = container
+        self.movieList = nil
     }
     
     var body: some View {
@@ -22,7 +24,9 @@ struct SearchView: View {
                     Image(systemName: "magnifyingglass")
                     TextField("검색어", text: $keyword)
                     Button("검색") {
-                        search()
+                        Task {
+                            await search()
+                        }
                     }.padding()
                 }
                 .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -31,7 +35,7 @@ struct SearchView: View {
                 Spacer()
                 
                 VStack(alignment: .leading) {
-                    Text("HelloWorld")
+                    MovieListView(movieList: $movieList)
                 }
                 
                 Spacer()
@@ -57,8 +61,12 @@ struct SearchView: View {
 }
 
 private extension SearchView {
-    func search() {
-        
+    func search() async {
+        do {
+            movieList = try await container.container.searchMovieContainer.search(keyword: keyword)
+        } catch {
+            print(error)
+        }
     }
 }
 
