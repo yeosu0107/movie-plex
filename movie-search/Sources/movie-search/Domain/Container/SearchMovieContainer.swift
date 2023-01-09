@@ -7,11 +7,11 @@
 
 import Foundation
 
-protocol SearchMovieUseCase {
+protocol SearchMovieContainer {
     func search(keyword: String) async throws -> Channel
 }
 
-final class DefaultSearchMovieUseCase : SearchMovieUseCase {
+final class DefaultSearchMovieContainer : SearchMovieContainer {
     
     private let movieRepository: MovieRepository
     
@@ -21,5 +21,10 @@ final class DefaultSearchMovieUseCase : SearchMovieUseCase {
     
     func search(keyword: String) async throws -> Channel {
         return try await movieRepository.searchMovie(keyword: keyword)
+    }
+}
+
+final class StubSearchMovieContainer : SearchMovieContainer {
+    func search(keyword: String) async throws -> Channel {
     }
 }
