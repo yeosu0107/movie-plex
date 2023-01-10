@@ -8,16 +8,16 @@
 import SwiftUI
 
 struct AppEnvironment {
-    let container: DIContainer
+    let diContainer: DIContainer
 }
 
 extension AppEnvironment {
     static func makeAppEnvironment() -> AppEnvironment {
         let movieRepository = DefaultMovieRepository()
         let containers = configureContainers(movieRepository: movieRepository)
-        let diContainer = DIContainer(container: containers)
+        let diContainer = DIContainer(containers: containers)
         
-        return AppEnvironment(container: diContainer)
+        return AppEnvironment(diContainer: diContainer)
     }
     
     private static func configureContainers(movieRepository: MovieRepository) -> DIContainer.InteractorContainers {

@@ -13,7 +13,6 @@ struct MoviePlexApp: App {
     var body: some Scene {
         WindowGroup {
             openSearchView()
-            
         }
     }
 }

@@ -10,10 +10,10 @@ import SwiftUI
 struct SearchView: View {
     @State private var keyword = ""
     @State private var movieList: Channel?
-    private let container: DIContainer
+    private let diContainer: DIContainer
     
-    init(container: DIContainer) {
-        self.container = container
+    init(diContainer: DIContainer) {
+        self.diContainer = diContainer
         self.movieList = nil
     }
     
@@ -63,7 +63,7 @@ struct SearchView: View {
 private extension SearchView {
     func search() async {
         do {
-            movieList = try await container.container.searchMovieContainer.search(keyword: keyword)
+            movieList = try await diContainer.containers.searchMovieContainer.search(keyword: keyword)
         } catch {
             print(error)
         }
@@ -72,7 +72,7 @@ private extension SearchView {
 
 struct SearchView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchView(container: .preview)
+        SearchView(diContainer: .preview)
     }
 }
 
