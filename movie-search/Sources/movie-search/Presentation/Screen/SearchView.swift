@@ -10,10 +10,9 @@ import SwiftUI
 struct SearchView: View {
     @State private var keyword = ""
     @State private var movieList: Channel?
-    private let diContainer: DIContainer
+    @Environment(\.injected) private var diContainer: DIContainer
     
-    init(diContainer: DIContainer) {
-        self.diContainer = diContainer
+    init() {
         self.movieList = nil
     }
     
@@ -72,7 +71,7 @@ private extension SearchView {
 
 struct SearchView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchView(diContainer: .preview)
+        SearchView().inject(.preview)
     }
 }
 

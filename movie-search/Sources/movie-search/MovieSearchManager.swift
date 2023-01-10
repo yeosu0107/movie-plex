@@ -6,7 +6,7 @@ public struct MovieSearchManager {
     
     public func launch() -> some View {
         let environment = AppEnvironment.makeAppEnvironment()
-        let searchView = SearchView(diContainer: environment.diContainer)
+        let searchView = SearchView().inject(environment.diContainer)
         
         return searchView
     }
