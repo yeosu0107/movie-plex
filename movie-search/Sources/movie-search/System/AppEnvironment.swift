@@ -14,15 +14,17 @@ struct AppEnvironment {
 extension AppEnvironment {
     static func makeAppEnvironment() -> AppEnvironment {
         let movieRepository = DefaultMovieRepository()
-        let containers = configureContainers(movieRepository: movieRepository)
+        let imageRepository = DefaultImageRepository()
+        let containers = configureContainers(movieRepository: movieRepository, imageRepository: imageRepository)
         let diContainer = DIContainer(containers: containers)
         
         return AppEnvironment(diContainer: diContainer)
     }
     
-    private static func configureContainers(movieRepository: MovieRepository) -> DIContainer.InteractorContainers {
+    private static func configureContainers(movieRepository: MovieRepository, imageRepository: ImageRepository) -> DIContainer.InteractorContainers {
         let searchMovieContainer = DefaultSearchMovieContainer(movieRepository: movieRepository)
+        let imageContainer = DefaultImageContainer(imageRepository: imageRepository)
         
-        return .init(searchMovieContainer: searchMovieContainer)
+        return .init(searchMovieContainer: searchMovieContainer, imageContainer: imageContainer)
     }
 }

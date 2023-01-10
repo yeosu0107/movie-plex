@@ -52,7 +52,7 @@ struct SearchView: View {
             Spacer()
             
             VStack(alignment: .leading) {
-                MovieListView(movieList: $movieList)
+                MovieListView(movieList: $movieList).inject(diContainer)
             }
             
             Spacer()

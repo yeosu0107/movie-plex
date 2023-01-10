@@ -9,13 +9,11 @@ import Foundation
 import Combine
 
 protocol WebRepository {
-    var session: URLSession { get }
-    var baseURL: String { get }
+    
 }
 
 extension WebRepository {
-    func request(apiCall: APICall) async throws -> String {
-        let request = try apiCall.urlRequest(baseURL: baseURL)
+    func request(request: URLRequest) async throws -> Data {
         let (data, response) = try await URLSession.shared.data(for: request)
         
         guard let httpResponse = response as? HTTPURLResponse else {
@@ -30,7 +28,6 @@ extension WebRepository {
             throw APIError.dataEmpty
         }
         
-        return String(decoding: data, as: UTF8.self)
-        
+        return data
     }
 }

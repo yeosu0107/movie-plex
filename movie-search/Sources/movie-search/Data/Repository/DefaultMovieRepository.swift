@@ -18,7 +18,8 @@ final class DefaultMovieRepository: MovieRepository {
     
     func searchMovie(keyword: String) async throws -> Channel {
         let movieAPI = MovieAPI(keyword: keyword)
-        let jsonString =  try await request(apiCall: movieAPI)
+        let data =  try await request(request: movieAPI.urlRequest(baseURL: baseURL))
+        let jsonString = String(decoding: data, as: UTF8.self)
         guard let jsonObject = jsonString.data(using: .utf8) else {
             throw APIError.parseError
         }

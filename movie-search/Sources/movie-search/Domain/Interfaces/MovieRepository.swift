@@ -8,5 +8,8 @@
 import Foundation
 
 protocol MovieRepository: WebRepository {
+    var session: URLSession { get }
+    var baseURL: String { get }
+    
     func searchMovie(keyword: String) async throws -> Channel
 }

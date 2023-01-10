@@ -8,7 +8,16 @@
 import SwiftUI
 
 struct MovieView: View {
-    var movie: Movie
+    let movie: Movie
+    @State var posterImg: UIImage?
+    @Environment(\.injected) private var diContainer: DIContainer
+    
+    init(movie: Movie) {
+        self.movie = movie
+        self.posterImg = nil
+        
+        loadImge()
+    }
     
     var body: some View {
         VStack(alignment:.leading) {
@@ -29,12 +38,29 @@ struct MovieView: View {
                     Text(movie.actor.dropLast(1).replacingOccurrences(of: "|", with: " | "))
                 }
             }
+            
+            if posterImg != nil {
+                Image(uiImage: posterImg!).resizable()
+            }
+        }
+    }
+}
+
+extension MovieView {
+    func loadImge() {
+        Task {
+            do {
+                print("before load image: \(movie.image)")
+                posterImg = try await diContainer.containers.imageContainer.load(url: movie.image)
+            } catch {
+                print(error)
+            }
         }
     }
 }
 
 struct MovieView_Previews: PreviewProvider {
     static var previews: some View {
-        MovieView(movie: Movie(title: "title", link: "", image: "", subtitle: "", pubDate: "2020", director: "director|", actor: "actor|actor|actor|", userRating: "5.0"))
+        MovieView(movie: Movie(title: "1", link: "1", image: "1", subtitle: "1", pubDate: "1", director: "1", actor: "1", userRating: "1")).inject(.preview)
     }
 }

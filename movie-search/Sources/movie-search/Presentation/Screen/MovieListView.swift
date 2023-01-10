@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MovieListView: View {
     @Binding var movieList: Channel?
+    @Environment(\.injected) private var diContainer: DIContainer
     
     var body: some View {
         if getMovieList() == nil {
@@ -17,7 +18,7 @@ struct MovieListView: View {
             List {
                 Section(header:Text("Search Result")) {
                     ForEach(getMovieList()!, id: \.self) { elem in
-                        NavigationLink(elem.title, destination: MovieView(movie: elem))
+                        NavigationLink(elem.title, destination: MovieView(movie: elem).inject(diContainer))
                     }
                 }
             }
@@ -42,7 +43,7 @@ private extension MovieListView {
 
 struct MovieListView_Previews: PreviewProvider {
     static var previews: some View {
-        MovieListView(movieList: .constant(nil))
+        MovieListView(movieList: .constant(nil)).inject(.preview)
     }
 }
 
