@@ -10,6 +10,8 @@ import SwiftUI
 struct SearchView: View {
     @State private var keyword = ""
     @State private var movieList: Channel?
+    @State private var isShowingAlert: Bool = false
+    @State private var errorMsg: String = ""
     @Environment(\.injected) private var diContainer: DIContainer
     
     init() {
@@ -17,46 +19,47 @@ struct SearchView: View {
     }
     
     var body: some View {
-        NavigationView {
-            VStack(alignment: .center) {
-                HStack {
-                    Image(systemName: "magnifyingglass")
-                    TextField("검색어", text: $keyword)
-                    Button("검색") {
-                        Task {
-                            await search()
-                        }
-                    }.padding()
-                }
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding()
-                
-                Spacer()
-                
-                VStack(alignment: .leading) {
-                    MovieListView(movieList: $movieList)
-                }
-                
-                Spacer()
+        if #available(iOS 14.0, *) {
+            NavigationView {
+                BodyView()
+                .navigationTitle("영화 검색")
+                .navigationBarTitleDisplayMode(.large)
             }
+            
+        } else {
+            NavigationView {
+                BodyView()
+                .navigationBarTitle("영화 검색", displayMode: .large)
+            }
+            
         }
-        .navigationBarTitle("영화 검색", displayMode: .automatic)
     }
     
-    //func NavigationTitleViews(content: ()-> some View) -> some //View {
-    //    if #available(iOS 14.0, *) {
-    //        return NavigationView{
-    //            content
-    //        }
-    //        .navigationTitle("영화 검색")
-    //        .navigationBarTitleDisplayMode(.automatic)
-    //    } else {
-    //        return NavigationView{
-    //            content
-    //        }
-    //        .navigationBarTitle("영화 검색", displayMode: //.automatic)
-    //    }
-    //}
+    func BodyView() -> some View {
+        VStack(alignment: .center) {
+            HStack {
+                Image(systemName: "magnifyingglass")
+                TextField("검색어", text: $keyword)
+                Button("검색") {
+                    Task {
+                        await search()
+                    }
+                }.padding()
+            }
+            .textFieldStyle(RoundedBorderTextFieldStyle())
+            .padding()
+            
+            Spacer()
+            
+            VStack(alignment: .leading) {
+                MovieListView(movieList: $movieList)
+            }
+            
+            Spacer()
+        }.alert(isPresented: $isShowingAlert) {
+            Alert(title: Text("Alert"), message: Text(errorMsg), dismissButton: .default(Text("OK")))
+        }
+    }
 }
 
 private extension SearchView {
@@ -65,6 +68,8 @@ private extension SearchView {
             movieList = try await diContainer.containers.searchMovieContainer.search(keyword: keyword)
         } catch {
             print(error)
+            errorMsg = error.localizedDescription
+            isShowingAlert = true
         }
     }
 }
