@@ -18,6 +18,18 @@ struct MovieView: View {
     }
     
     var body: some View {
+        if #available(iOS 15.0, *) {
+            movieDetail.task {
+                loadImge()
+            }
+        } else {
+            movieDetail.onAppear {
+                loadImge()
+            }
+        }
+    }
+    
+    var movieDetail: some View {
         VStack(alignment:.leading) {
             Text(movie.title)
             
@@ -35,8 +47,6 @@ struct MovieView: View {
                     Text("|  출연: ")
                     Text(movie.actor.dropLast(1).replacingOccurrences(of: "|", with: " | "))
                 }
-            }.task {
-                loadImge()
             }
             
             if posterImg != nil {
@@ -45,7 +55,7 @@ struct MovieView: View {
                 if #available(iOS 14.0, *) {
                     ProgressView().progressViewStyle(CircularProgressViewStyle())
                 } else {
-                    ActivityInti
+                    ActivityIndicator(isAnimating: true)
                 }
             }
         }
@@ -65,19 +75,10 @@ extension MovieView {
     }
 }
 
-extension View {
-    @available(iOS, deprecated: 15.0, message: "This extension is no longer necessary. Use API built into SDK")
-        func task(priority: TaskPriority = .userInitiated, _ action: @escaping @Sendable () async -> Void) -> some View {
-            self.onAppear {
-                Task(priority: priority) {
-                    await action()
-                }
-            }
-        }
-}
+
 
 struct MovieView_Previews: PreviewProvider {
     static var previews: some View {
-        MovieView(movie: Movie(title: "1", link: "1", image: "1", subtitle: "1", pubDate: "1", director: "1", actor: "1", userRating: "1")).inject(.preview)
+        MovieView(movie: Movie(title: "1", link: "1", image: "https://ssl.pstatic.net/imgmovie/mdi/mit110/2184/218402_P01_154159.jpeg", subtitle: "1", pubDate: "1", director: "1", actor: "1", userRating: "1")).inject(.preview)
     }
 }
