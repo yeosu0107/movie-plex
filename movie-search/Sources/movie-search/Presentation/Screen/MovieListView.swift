@@ -18,7 +18,9 @@ struct MovieListView: View {
             List {
                 Section(header:Text("Search Result")) {
                     ForEach(getMovieList()!, id: \.self) { elem in
-                        NavigationLink(elem.title, destination: movieDetailView(movie: elem))
+                        NavigationLink(destination: movieDetailView(movie: elem)) {
+                            AttributedText(elem.title)
+                        }
                     }
                 }
             }

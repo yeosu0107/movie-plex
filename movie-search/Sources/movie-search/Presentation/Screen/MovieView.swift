@@ -30,27 +30,11 @@ struct MovieView: View {
     }
     
     var movieDetail: some View {
-        VStack(alignment:.leading) {
-            Text(movie.title)
-            
-            HStack {
-                Text(movie.pubDate)
-                Text(" | ")
-                Text(movie.userRating)
-            }
-            HStack {
-                if movie.director.count > 0 {
-                    Text("감독: ")
-                    Text(movie.director.dropLast(1).replacingOccurrences(of: "|", with: " | "))
-                }
-                if movie.actor.count > 0 {
-                    Text("|  출연: ")
-                    Text(movie.actor.dropLast(1).replacingOccurrences(of: "|", with: " | "))
-                }
-            }
+        VStack {
+            Spacer()
             
             if posterImg != nil {
-                Image(uiImage: posterImg!).resizable()
+                Image(uiImage: posterImg!)
             } else {
                 if #available(iOS 14.0, *) {
                     ProgressView().progressViewStyle(CircularProgressViewStyle())
@@ -58,7 +42,37 @@ struct MovieView: View {
                     ActivityIndicator(isAnimating: true)
                 }
             }
-        }
+            
+            Spacer()
+            
+            VStack(alignment: .leading) {
+                AttributedText(movie.title).font(.system(size:22, weight: .regular))
+                
+                HStack {
+                    Text("(\(movie.pubDate))")
+                    Text(" | ")
+                    Text("\(movie.userRating) / 10.0")
+                }
+                
+                if movie.director.count > 0 {
+                    HStack {
+                        Text("감독: ")
+                        Text(movie.director.dropLast(1).replacingOccurrences(of: "|", with: " | "))
+                    }
+                }
+                
+                if movie.actor.count > 0 {
+                    HStack {
+                        Text("출연: ")
+                        Text(movie.actor.dropLast(1).replacingOccurrences(of: "|", with: " | "))
+                    }
+                }
+            }
+            
+            Spacer()
+            Spacer()
+            
+        }.frame(width: 320, height: 640)
     }
 }
 
@@ -79,6 +93,6 @@ extension MovieView {
 
 struct MovieView_Previews: PreviewProvider {
     static var previews: some View {
-        MovieView(movie: Movie(title: "1", link: "1", image: "https://ssl.pstatic.net/imgmovie/mdi/mit110/2184/218402_P01_154159.jpeg", subtitle: "1", pubDate: "1", director: "1", actor: "1", userRating: "1")).inject(.preview)
+        MovieView(movie: Movie(title: "title", link: "1", image: "imageLink", subtitle: "subTitle", pubDate: "2023", director: "director,", actor: "actor,", userRating: "1")).inject(.preview)
     }
 }
