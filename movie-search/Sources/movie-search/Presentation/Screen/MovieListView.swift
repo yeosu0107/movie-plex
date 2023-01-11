@@ -18,7 +18,7 @@ struct MovieListView: View {
             List {
                 Section(header:Text("Search Result")) {
                     ForEach(getMovieList()!, id: \.self) { elem in
-                        NavigationLink(elem.title, destination: MovieView(movie: elem).inject(diContainer))
+                        NavigationLink(elem.title, destination: movieDetailView(movie: elem))
                     }
                 }
             }
@@ -38,6 +38,10 @@ private extension MovieListView {
         }
         
         return movieList!.items
+    }
+    
+    func movieDetailView(movie: Movie) -> some View {
+        MovieView(movie: movie).inject(diContainer)
     }
 }
 

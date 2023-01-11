@@ -15,8 +15,6 @@ struct MovieView: View {
     init(movie: Movie) {
         self.movie = movie
         self.posterImg = nil
-        
-        loadImge()
     }
     
     var body: some View {
@@ -37,10 +35,18 @@ struct MovieView: View {
                     Text("|  출연: ")
                     Text(movie.actor.dropLast(1).replacingOccurrences(of: "|", with: " | "))
                 }
+            }.task {
+                loadImge()
             }
             
             if posterImg != nil {
                 Image(uiImage: posterImg!).resizable()
+            } else {
+                if #available(iOS 14.0, *) {
+                    ProgressView().progressViewStyle(CircularProgressViewStyle())
+                } else {
+                    ActivityInti
+                }
             }
         }
     }
@@ -50,13 +56,24 @@ extension MovieView {
     func loadImge() {
         Task {
             do {
-                print("before load image: \(movie.image)")
+                print("loading image: \(movie.image)")
                 posterImg = try await diContainer.containers.imageContainer.load(url: movie.image)
             } catch {
-                print(error)
+                print("fail to load image: \(error)")
             }
         }
     }
+}
+
+extension View {
+    @available(iOS, deprecated: 15.0, message: "This extension is no longer necessary. Use API built into SDK")
+        func task(priority: TaskPriority = .userInitiated, _ action: @escaping @Sendable () async -> Void) -> some View {
+            self.onAppear {
+                Task(priority: priority) {
+                    await action()
+                }
+            }
+        }
 }
 
 struct MovieView_Previews: PreviewProvider {
